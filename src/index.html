@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>REPLACE_PROJECT_NAME</title>
+  <title>hub-search-ai</title>
 
-  <script type="module" src="./build/REPLACE_PROJECT_NAME.esm.js"></script>
-  <script nomodule src="./build/REPLACE_PROJECT_NAME.js"></script>
+  <script type="module" src="./build/hub-search-ai.esm.js"></script>
+  <script nomodule src="./build/hub-search-ai.js"></script>
 
   <link
     rel="stylesheet"
@@ -18,19 +18,24 @@
 
 <body>
   <!-- Delayed render so we can get the API key from URL parameters -->
-  <div id="placeholder"></div>
-
+  <div class="card">
+    <div id="placeholder"></div>
+  </div>
   <style>
     body {
       font-family: sans-serif;
       margin: 0;
       padding: 0;
     }
+    .card {
+      max-width: 300px;
+      margin: 20px;
+    }
   </style>
 
   <script>
     // Dynamically add the component so we can set URL or object properties
-    const componentName = "REPLACE_PROJECT_NAME";
+    const componentName = "hub-ai-search-input";
 
     const placeholderEl = document.getElementById("placeholder");
     const componentEl = document.createElement( componentName );

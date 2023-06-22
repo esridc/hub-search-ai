@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 300px;
+  height: 35px;
+  padding: 5px;
+}
+hub-autosuggest {
+  margin: 5px;
+}

@@ -6,19 +6,79 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface HubAiSearchInput {
+    }
+    interface HubAutosuggest {
+        "term": string;
+    }
+    interface HubAutosuggestAction {
+        "name": string;
+    }
+    interface HubAutosuggestSection {
+        "data": Array<any>;
+        "name": string;
+    }
 }
 declare global {
+    interface HTMLHubAiSearchInputElement extends Components.HubAiSearchInput, HTMLStencilElement {
+    }
+    var HTMLHubAiSearchInputElement: {
+        prototype: HTMLHubAiSearchInputElement;
+        new (): HTMLHubAiSearchInputElement;
+    };
+    interface HTMLHubAutosuggestElement extends Components.HubAutosuggest, HTMLStencilElement {
+    }
+    var HTMLHubAutosuggestElement: {
+        prototype: HTMLHubAutosuggestElement;
+        new (): HTMLHubAutosuggestElement;
+    };
+    interface HTMLHubAutosuggestActionElement extends Components.HubAutosuggestAction, HTMLStencilElement {
+    }
+    var HTMLHubAutosuggestActionElement: {
+        prototype: HTMLHubAutosuggestActionElement;
+        new (): HTMLHubAutosuggestActionElement;
+    };
+    interface HTMLHubAutosuggestSectionElement extends Components.HubAutosuggestSection, HTMLStencilElement {
+    }
+    var HTMLHubAutosuggestSectionElement: {
+        prototype: HTMLHubAutosuggestSectionElement;
+        new (): HTMLHubAutosuggestSectionElement;
+    };
     interface HTMLElementTagNameMap {
+        "hub-ai-search-input": HTMLHubAiSearchInputElement;
+        "hub-autosuggest": HTMLHubAutosuggestElement;
+        "hub-autosuggest-action": HTMLHubAutosuggestActionElement;
+        "hub-autosuggest-section": HTMLHubAutosuggestSectionElement;
     }
 }
 declare namespace LocalJSX {
+    interface HubAiSearchInput {
+    }
+    interface HubAutosuggest {
+        "term"?: string;
+    }
+    interface HubAutosuggestAction {
+        "name"?: string;
+    }
+    interface HubAutosuggestSection {
+        "data"?: Array<any>;
+        "name"?: string;
+    }
     interface IntrinsicElements {
+        "hub-ai-search-input": HubAiSearchInput;
+        "hub-autosuggest": HubAutosuggest;
+        "hub-autosuggest-action": HubAutosuggestAction;
+        "hub-autosuggest-section": HubAutosuggestSection;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hub-ai-search-input": LocalJSX.HubAiSearchInput & JSXBase.HTMLAttributes<HTMLHubAiSearchInputElement>;
+            "hub-autosuggest": LocalJSX.HubAutosuggest & JSXBase.HTMLAttributes<HTMLHubAutosuggestElement>;
+            "hub-autosuggest-action": LocalJSX.HubAutosuggestAction & JSXBase.HTMLAttributes<HTMLHubAutosuggestActionElement>;
+            "hub-autosuggest-section": LocalJSX.HubAutosuggestSection & JSXBase.HTMLAttributes<HTMLHubAutosuggestSectionElement>;
         }
     }
 }
