@@ -1,0 +1,2 @@
+import{r as t,h as n}from"./p-29cdcf48.js";const e="h3{color:#333;font-weight:bold}ul{list-style-type:none;padding:0}";const s=class{constructor(n){t(this,n);this.name=undefined;this.data=undefined}render(){return n("div",null,n("h3",null,this.name),n("ul",null,this.data.map((t=>n("li",null,n("a",{target:"_new",href:`https://opendata.dc.gov/content/${t.id}`},t.name))))))}};s.style=e;export{s as hub_autosuggest_section};
+//# sourceMappingURL=p-1be6095a.entry.js.map
