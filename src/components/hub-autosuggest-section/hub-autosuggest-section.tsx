@@ -1,4 +1,5 @@
 
+import { IHubSearchResult } from '@esri/hub-common';
 import { Component, Prop, h } from '@stencil/core';
 
   @Component({
@@ -12,13 +13,24 @@ import { Component, Prop, h } from '@stencil/core';
   
     render() {
       return (
-        <div>
-          <h3>{this.name}</h3>
-          <ul>
-            {this.data.map(item => <li><a target="_new" href={`https://opendata.dc.gov/content/${item.id}`}>{item.name}</a></li>)}
+        <div class="section">
+          <div class="section-name">{this.name}</div>
+          <ul class="section-results">
+            {this.data.map(item => <li>{this.renderResult(item)}</li>)}
           </ul>
         </div>
       );
+    }
+    renderResult(result: IHubSearchResult) {
+      return (
+        <div class="result">
+          <a target="_new" href={`https://opendata.dc.gov/content/${result.id}`}>
+            <div class="name">{result.name}</div>
+            <div class="source">{result.source || result.owner}</div>
+          </a>
+        </div>
+      )
+      
     }
   }
   

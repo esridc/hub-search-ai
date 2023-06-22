@@ -1,17 +1,49 @@
-h3 {
-  color: #333;
-  font-weight: bold;
+:host {
+}
+.section {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "name results";
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
   border-bottom: 1px solid #ddd;
-  padding: 0.2em 0;
+  padding: 0 0 0.2em 0;
 }
 li:last-child {
   border: none;
+}
+.section-name {
+  grid-area: name;
+  background-color: #DDD;
+  border-bottom: 1px solid #FFF;
+}
+.section-results {
+  grid-area: results;
+  padding-left: 10px;
+  border-bottom: 1px solid #DDD;
+}
+.result a {
+  text-decoration: none;
+  color: black;
+}
+.result:hover a {
+  text-decoration: underline;
+  color: blue;
+}
+.result .name {
+  font-size: 1.1em;
+}
+.result .source {
+  font-size: 0.8em;
+  clear: left;
+  font-weight: 300;
 }
