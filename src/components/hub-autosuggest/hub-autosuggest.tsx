@@ -19,6 +19,7 @@ export class HubAutosuggest {
 
   @State() suggestions = [];
   @State() sections = {};
+  @State() loading:boolean = true;
 
   @Watch('term')
   // Placeholder function
@@ -36,9 +37,12 @@ export class HubAutosuggest {
         { predicates: [{term: queryTerm}] }
       ]
     }, options);
+
+    this.loading = true;
     const items:IHubSearchResult[] = results.results;
     this.sections = groupBy(items, 'family')
     console.debug("Results", results, this.sections)
+    this.loading = false;
   }
 
   componentWillLoad() {
@@ -48,6 +52,7 @@ export class HubAutosuggest {
   render() {
     return (
       <div>
+        {this.loading ? this.renderLoading() : null}
         {Object.keys(this.sections).map((section) => {
           return(
             <hub-autosuggest-section name={section} data={this.sections[section]}></hub-autosuggest-section>
@@ -56,5 +61,8 @@ export class HubAutosuggest {
         {/* <hub-autosuggest-action name='Try out AI'></hub-autosuggest-action> */}
       </div>
     );
+  }
+  renderLoading() {
+    return <em>loading...</em>;
   }
 }
