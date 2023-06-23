@@ -16,21 +16,30 @@ var groupBy = function(xs, key) {
 })
 export class HubAutosuggest {
   @Prop() term: string;
-
+  @Prop() api: string = "ogc";
+  
   @State() suggestions = [];
   @State() sections = {};
   @State() loading:boolean = true;
 
   @Watch('term')
+  @Watch('api')
   // Placeholder function
-  async fetchSuggestions(queryTerm) {
+  async fetchSuggestions() {
+    const queryTerm = this.term;
     // TODO: the Search docs need to be cleaned up
     const options = {
-      site: "https://opendata.dc.gov",
-      requestOptions: {
-        hubApiUrl: "https://hub.arcgis.com"
-      }
-    };
+      requestOptions: {} 
+    } as { [key: string]: any};
+
+    console.info(`Using ${this.api} API`)
+    if (this.api === "ogc") {
+      options.site = "https://opendata.dc.gov",
+      options.requestOptions.hubApiUrl = "https://hub.arcgis.com";
+    } else {
+      options.requestOptions.portal = "https://www.arcgis.com/sharing/rest";
+    }
+    
     const results = await hubSearch({
       targetEntity: "item",
       filters: [
@@ -46,7 +55,7 @@ export class HubAutosuggest {
   }
 
   componentWillLoad() {
-    this.fetchSuggestions(this.term);
+    this.fetchSuggestions();
   }
 
   render() {
