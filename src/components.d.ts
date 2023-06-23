@@ -7,8 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface HubAiSearchInput {
+        "api": string;
     }
     interface HubAutosuggest {
+        "api": string;
         "term": string;
     }
     interface HubAutosuggestAction {
@@ -53,8 +55,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface HubAiSearchInput {
+        "api"?: string;
     }
     interface HubAutosuggest {
+        "api"?: string;
         "term"?: string;
     }
     interface HubAutosuggestAction {
